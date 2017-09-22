@@ -10,6 +10,11 @@
 		6E8C76201F7535E000929E02 /* WoopraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8C76161F7535E000929E02 /* WoopraSDK.framework */; };
 		6E8C76251F7535E000929E02 /* WoopraSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76241F7535E000929E02 /* WoopraSDKTests.swift */; };
 		6E8C76271F7535E000929E02 /* WoopraSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8C76191F7535E000929E02 /* WoopraSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E8C76351F7535F900929E02 /* WVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76301F7535F900929E02 /* WVisitor.swift */; };
+		6E8C76361F7535F900929E02 /* WPinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76311F7535F900929E02 /* WPinger.swift */; };
+		6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */; };
+		6E8C76381F7535F900929E02 /* WTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76331F7535F900929E02 /* WTracker.swift */; };
+		6E8C76391F7535F900929E02 /* WEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76341F7535F900929E02 /* WEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		6E8C761F1F7535E000929E02 /* WoopraSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoopraSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8C76241F7535E000929E02 /* WoopraSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopraSDKTests.swift; sourceTree = "<group>"; };
 		6E8C76261F7535E000929E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E8C76301F7535F900929E02 /* WVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WVisitor.swift; sourceTree = "<group>"; };
+		6E8C76311F7535F900929E02 /* WPinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPinger.swift; sourceTree = "<group>"; };
+		6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPropertiesContainer.swift; sourceTree = "<group>"; };
+		6E8C76331F7535F900929E02 /* WTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTracker.swift; sourceTree = "<group>"; };
+		6E8C76341F7535F900929E02 /* WEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				6E8C76191F7535E000929E02 /* WoopraSDK.h */,
+				6E8C76331F7535F900929E02 /* WTracker.swift */,
+				6E8C76301F7535F900929E02 /* WVisitor.swift */,
+				6E8C76311F7535F900929E02 /* WPinger.swift */,
+				6E8C76341F7535F900929E02 /* WEvent.swift */,
+				6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */,
 				6E8C761A1F7535E000929E02 /* Info.plist */,
 			);
 			path = WoopraSDK;
@@ -149,6 +164,7 @@
 					6E8C76151F7535E000929E02 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 63QK7MRVTT;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					6E8C761E1F7535E000929E02 = {
@@ -198,6 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E8C76391F7535F900929E02 /* WEvent.swift in Sources */,
+				6E8C76381F7535F900929E02 /* WTracker.swift in Sources */,
+				6E8C76361F7535F900929E02 /* WPinger.swift in Sources */,
+				6E8C76351F7535F900929E02 /* WVisitor.swift in Sources */,
+				6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +345,7 @@
 		6E8C762B1F7535E000929E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 63QK7MRVTT;
@@ -336,6 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.woopra.WoopraSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +366,7 @@
 		6E8C762C1F7535E000929E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 63QK7MRVTT;
@@ -362,6 +386,7 @@
 		6E8C762E1F7535E000929E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 63QK7MRVTT;
 				INFOPLIST_FILE = WoopraSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +399,7 @@
 		6E8C762F1F7535E000929E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 63QK7MRVTT;
 				INFOPLIST_FILE = WoopraSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
