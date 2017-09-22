@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CommonCrypto
 
 class WVisitor: WPropertiesContainer {
     

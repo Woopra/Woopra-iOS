@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CommonCryptoModuleMap.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>WoopraSDK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>6E8C761E1F7535E000929E02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E8C763A1F75532800929E02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
