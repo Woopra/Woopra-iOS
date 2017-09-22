@@ -76,31 +76,29 @@ final class WTracker: WPropertiesContainer {
         ]
         
         if (self.referer != nil) {
-            queryItems.append(NSURLQueryItem(name: "referer", value:self.referer))
+            queryItems.append(NSURLQueryItem(name: "referer", value: self.referer))
         }
         
-        // Add self's properties. System properties
+        // Add system properties e.g. device, os, browser
         for (key, value) in self.properties {
             queryItems.append(NSURLQueryItem(name: "\(key)", value: value))
         }
         
         // Add visitors properties
-        var tempProperties = self.visitor!.properties 
-        for (key, value) in tempProperties {
+        let visitorProperties = self.visitor!.properties
+        for (key, value) in visitorProperties {
             queryItems.append(NSURLQueryItem(name: "cv_\(key)", value: value));
         }
         
         // Add Event Properties
-        tempProperties = event.properties
-        for (key, value) in tempProperties {
-            // FIX: - look into this
+        let eventProperties = event.properties
+        for (key, value) in eventProperties {
             if key.hasPrefix("~") {
-                /*
-                 * system property
-                 */
+                // Parsing of required system event properties. For example ~event – custom event type. e.g. event=purchase, event=signup etc…
                 let index = key.index(key.startIndex, offsetBy: 1)
                 queryItems.append(NSURLQueryItem(name: key.substring(from: index), value: value))
             } else {
+                // Parsing of optional event properties
                 queryItems.append(NSURLQueryItem(name: "ce_\(key)", value: value))
             }
         }
@@ -108,7 +106,6 @@ final class WTracker: WPropertiesContainer {
         components?.queryItems = queryItems as [URLQueryItem]
         let requestUrl = components?.url
         
-            
         if let url = requestUrl {
             let request = URLRequest(url: url)
             let session = URLSession.shared
