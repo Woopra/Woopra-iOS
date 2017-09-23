@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		6E8C763A1F75532800929E02 /* CommonCryptoModuleMap */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 6E8C763B1F75532800929E02 /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */;
-			buildPhases = (
-				6E8C763E1F75533900929E02 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = CommonCryptoModuleMap;
-			productName = CommonCryptoModuleMap;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		6E8C76201F7535E000929E02 /* WoopraSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8C76161F7535E000929E02 /* WoopraSDK.framework */; };
 		6E8C76251F7535E000929E02 /* WoopraSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76241F7535E000929E02 /* WoopraSDKTests.swift */; };
@@ -29,6 +15,7 @@
 		6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */; };
 		6E8C76381F7535F900929E02 /* WTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76331F7535F900929E02 /* WTracker.swift */; };
 		6E8C76391F7535F900929E02 /* WEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76341F7535F900929E02 /* WEvent.swift */; };
+		6ECDA1EF1F7701F20053F3D6 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +25,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6E8C76151F7535E000929E02;
 			remoteInfo = WoopraSDK;
-		};
-		6E8C763F1F75536300929E02 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6E8C760D1F7535E000929E02 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6E8C763A1F75532800929E02;
-			remoteInfo = CommonCryptoModuleMap;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,6 +40,7 @@
 		6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPropertiesContainer.swift; sourceTree = "<group>"; };
 		6E8C76331F7535F900929E02 /* WTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTracker.swift; sourceTree = "<group>"; };
 		6E8C76341F7535F900929E02 /* WEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEvent.swift; sourceTree = "<group>"; };
+		6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +89,7 @@
 				6E8C76311F7535F900929E02 /* WPinger.swift */,
 				6E8C76341F7535F900929E02 /* WEvent.swift */,
 				6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */,
+				6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */,
 				6E8C761A1F7535E000929E02 /* Info.plist */,
 			);
 			path = WoopraSDK;
@@ -148,7 +130,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6E8C76401F75536300929E02 /* PBXTargetDependency */,
 			);
 			name = WoopraSDK;
 			productName = WoopraSDK;
@@ -194,11 +175,6 @@
 						DevelopmentTeam = 63QK7MRVTT;
 						ProvisioningStyle = Automatic;
 					};
-					6E8C763A1F75532800929E02 = {
-						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 63QK7MRVTT;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 6E8C76101F7535E000929E02 /* Build configuration list for PBXProject "WoopraSDK" */;
@@ -215,7 +191,6 @@
 			targets = (
 				6E8C76151F7535E000929E02 /* WoopraSDK */,
 				6E8C761E1F7535E000929E02 /* WoopraSDKTests */,
-				6E8C763A1F75532800929E02 /* CommonCryptoModuleMap */,
 			);
 		};
 /* End PBXProject section */
@@ -237,22 +212,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		6E8C763E1F75533900929E02 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap/module.modulemap\"\nmodule CommonCrypto [system] {\n    header \"${SDKROOT}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		6E8C76111F7535E000929E02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -261,6 +220,7 @@
 				6E8C76391F7535F900929E02 /* WEvent.swift in Sources */,
 				6E8C76381F7535F900929E02 /* WTracker.swift in Sources */,
 				6E8C76361F7535F900929E02 /* WPinger.swift in Sources */,
+				6ECDA1EF1F7701F20053F3D6 /* DictionaryExtension.swift in Sources */,
 				6E8C76351F7535F900929E02 /* WVisitor.swift in Sources */,
 				6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */,
 			);
@@ -281,11 +241,6 @@
 			isa = PBXTargetDependency;
 			target = 6E8C76151F7535E000929E02 /* WoopraSDK */;
 			targetProxy = 6E8C76211F7535E000929E02 /* PBXContainerItemProxy */;
-		};
-		6E8C76401F75536300929E02 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6E8C763A1F75532800929E02 /* CommonCryptoModuleMap */;
-			targetProxy = 6E8C763F1F75536300929E02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -462,22 +417,6 @@
 			};
 			name = Release;
 		};
-		6E8C763C1F75532800929E02 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 63QK7MRVTT;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		6E8C763D1F75532800929E02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = 63QK7MRVTT;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -497,6 +436,7 @@
 				6E8C762C1F7535E000929E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E8C762D1F7535E000929E02 /* Build configuration list for PBXNativeTarget "WoopraSDKTests" */ = {
 			isa = XCConfigurationList;
@@ -505,14 +445,7 @@
 				6E8C762F1F7535E000929E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		6E8C763B1F75532800929E02 /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6E8C763C1F75532800929E02 /* Debug */,
-				6E8C763D1F75532800929E02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

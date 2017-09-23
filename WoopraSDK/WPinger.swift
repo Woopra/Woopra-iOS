@@ -11,10 +11,8 @@ import UIKit
 class WPinger: NSObject {
     
     var tracker: WTracker? = nil
-    
+    private let  pingInterval = 10.0
     private var pingTimer: Timer?
-    // FIX: - not less than 10 seconds, but if more – 5 second less than timeout
-    private let WPingerAperture = 10.0
     private let WPingEndpoint = "https://www.woopra.com/track/ping/"
     private var observerContext = 0
     
@@ -35,7 +33,7 @@ class WPinger: NSObject {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let tracker = self.tracker, let keyPath = keyPath {
             if tracker.isEqual(object) && self.monitoredTrackerProperties().contains(keyPath) {
                 self.startStopPingTimerAccordingToTrackerState()
@@ -53,9 +51,9 @@ class WPinger: NSObject {
             if (domain.characters.count > 0 &&
                 tracker.visitor != nil &&
                 tracker.pingEnabled &&
-                tracker.idleTimeout > WPingerAperture) {
+                tracker.idleTimeout > pingInterval) {
                 // start ping timer if timeout more then WPingerAperture seconds
-                pingTimer = Timer.scheduledTimer(timeInterval: WPingerAperture, target: self, selector: #selector(WPinger.pingTimerDidFire(timer:)), userInfo: nil, repeats: true)
+                pingTimer = Timer.scheduledTimer(timeInterval: pingInterval, target: self, selector: #selector(WPinger.pingTimerDidFire(timer:)), userInfo: nil, repeats: true)
                 self.pingTimerDidFire(timer: pingTimer!)
             }
         }

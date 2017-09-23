@@ -11,6 +11,5 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/Woopra/Woopra-iOS.git", :tag => "#{s.version}" }
   s.source_files = "WoopraSDK", "WoopraSDK/**/*.{h,m,swift}"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
 
 end

@@ -2,7 +2,7 @@
 //  WoopraSDK.h
 //  WoopraSDK
 //
-//  Created by Anvar Azizov on 22.09.17.
+//  Created by Woopra on 22.09.17.
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 

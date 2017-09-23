@@ -8,28 +8,39 @@
 
 import UIKit
 
-final class WTracker: WPropertiesContainer {
+public class WTracker: WPropertiesContainer {
     
     // MARK: - Public properties
     // Identifies which project environment your sending this tracking request to.
-    dynamic var domain: String?
-    dynamic var visitor: WVisitor!
+    dynamic public var domain: String?
+    dynamic public var visitor: WVisitor!
     
     // In seconds, defaults to 30, after which the event will expire and the visitor will considered offline.
-    dynamic var idleTimeout: TimeInterval = 30
-    
+    dynamic public var idleTimeout: TimeInterval {
+        get { return _idleTimeout }
+        set(aNewValue) {
+            if aNewValue > 60.0 {
+                _idleTimeout = aNewValue - 5.0
+            } else {
+                _idleTimeout = aNewValue
+            }
+        }
+    }
+
+    private var _idleTimeout: TimeInterval = 30.0
+   
     // ping requests can be periodically sent to Woopra servers to refresh the visitor timeout counter. This is used if it’s important to keep a visitor status ‘online’ when he’s inactive for a long time (for cases such as watching a long video).
-    dynamic var pingEnabled = false
+    dynamic public var pingEnabled = false
     
     // visit’s referring URL, Woopra servers will match the URL against a database of referrers and will generate a referrer type and search terms when applicable. The referrers data will be automatically accessible from the Woopra clients.
-    var referer: String?
+    public var referer: String?
     
     // MARK: - Private properties
     private let WEventEndpoint = "https://www.woopra.com/track/ce/"
     private var gPinger: WPinger? = nil
     
     // MARK: - Shared instance
-    static let shared: WTracker = {
+    public static let shared: WTracker = {
         let instance = WTracker()
         
         // default timeout value for Woopra service

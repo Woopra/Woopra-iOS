@@ -8,14 +8,14 @@
 
 import Foundation
 
-class WEvent: WPropertiesContainer {
+public class WEvent: WPropertiesContainer {
     
-    init(name: String) {
+    public init(name: String) {
         super.init()
         self.add(property: "~event", value: name)
     }
     
-    static func event(name: String) -> WEvent {
+    public static func event(name: String) -> WEvent {
         return WEvent(name: name)
     }
 }
