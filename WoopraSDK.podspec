@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name         = "WoopraSDK"
-  s.version      = "0.0.2"
-  s.summary      = "A short description of WoopraSDK."
-  s.description  = "A short description of WoopraSDK. A short description of WoopraSDK. A short description of WoopraSDK. A short description of WoopraSDK."
+  s.name         = "Woopra-iOS"
+  s.version      = "1.0.0"
+  s.summary      = "Woopra official iOS SDK"
+  s.description  = "Woopra official iOS SDK"
 
   s.homepage     = "http://woopra.com/"
   s.license      = "MIT"

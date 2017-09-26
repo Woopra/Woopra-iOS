@@ -8,10 +8,10 @@ When the app loads, you should load the Woopra Tracker and configure it.
 WTracker.shared.domain = "mybusiness.com"
 ```
 
-You can update your idle timeout (default: 30 seconds) by updating the timeout property in your WTracker instance:
+You can update your idle timeout (default: 60 seconds) by updating the timeout property in your WTracker instance:
 
 ``` swift
-WTracker.shared.idleTimeout = 60
+WTracker.shared.idleTimeout = 30
 ```
 
 If you want to keep the user online on Woopra even if they don't commit any event between the last event and the idleTimeout, you can enable auto pings.
@@ -58,7 +58,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'WoopraSDK'
+    pod 'Woopra-iOS'
 end
 ```
 
@@ -79,10 +79,10 @@ $ brew update
 $ brew install carthage
 ```
 
-To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate Woopra iOS SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
 github "Woopra/Woopra-iOS"
 ```
 
-Run `carthage update` to build the framework and drag the built `Alamofire.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `WoopraSDK.framework` into your Xcode project.
