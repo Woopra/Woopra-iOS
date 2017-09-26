@@ -11,23 +11,24 @@ import UIKit
 public class WTracker: WPropertiesContainer {
     
     // MARK: - Public properties
-    // Identifies which project environment your sending this tracking request to.
+    // Identifies which project environment your sending this tracking request to. E.g. http://yourproject.com
     dynamic public var domain: String?
     dynamic public var visitor: WVisitor!
     
-    // In seconds, defaults to 30, after which the event will expire and the visitor will considered offline.
+    // In seconds, defaults to 60, after which the event will expire and the visitor will considered offline.
+    // when idleTimeout changes – pingInterval = idleTimeout - 10.0 (but minimum is 30.0 for both)
     dynamic public var idleTimeout: TimeInterval {
         get { return _idleTimeout }
         set(aNewValue) {
-            if aNewValue > 60.0 {
-                _idleTimeout = aNewValue - 5.0
+            if aNewValue < 30.0 {
+                _idleTimeout = 30.0
             } else {
                 _idleTimeout = aNewValue
             }
         }
     }
 
-    private var _idleTimeout: TimeInterval = 30.0
+    private var _idleTimeout: TimeInterval = 60.0
    
     // ping requests can be periodically sent to Woopra servers to refresh the visitor timeout counter. This is used if it’s important to keep a visitor status ‘online’ when he’s inactive for a long time (for cases such as watching a long video).
     dynamic public var pingEnabled = false
@@ -42,9 +43,6 @@ public class WTracker: WPropertiesContainer {
     // MARK: - Shared instance
     public static let shared: WTracker = {
         let instance = WTracker()
-        
-        // default timeout value for Woopra service
-        instance.idleTimeout = 30.0
         
         // initialize system needed properties
         instance.add(property: "device", value: UIDevice.current.model)

@@ -11,10 +11,10 @@ import UIKit
 class WPinger: NSObject {
     
     var tracker: WTracker? = nil
-    private let  pingInterval = 10.0
     private var pingTimer: Timer?
-    private let WPingEndpoint = "https://www.woopra.com/track/ping/"
     private var observerContext = 0
+    private var pingInterval = 50.0
+    private let WPingEndpoint = "https://www.woopra.com/track/ping/"
     
     init(tracker: WTracker) {
         super.init()
@@ -50,9 +50,8 @@ class WPinger: NSObject {
         if let tracker = self.tracker, let domain = tracker.domain {
             if (domain.characters.count > 0 &&
                 tracker.visitor != nil &&
-                tracker.pingEnabled &&
-                tracker.idleTimeout > pingInterval) {
-                // start ping timer if timeout more then WPingerAperture seconds
+                tracker.pingEnabled) {
+                pingInterval = tracker.idleTimeout - 10.0
                 pingTimer = Timer.scheduledTimer(timeInterval: pingInterval, target: self, selector: #selector(WPinger.pingTimerDidFire(timer:)), userInfo: nil, repeats: true)
                 self.pingTimerDidFire(timer: pingTimer!)
             }
@@ -89,6 +88,6 @@ class WPinger: NSObject {
     }
 
     private func monitoredTrackerProperties() -> [String] {
-        return ["pingEnabled", "timeout", "visitor", "domain"]
+        return ["pingEnabled", "idleTimeout", "visitor", "domain"]
     }
 }
