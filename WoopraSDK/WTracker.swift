@@ -48,7 +48,7 @@ public class WTracker: WPropertiesContainer {
         instance.add(property: "device", value: UIDevice.current.model)
         instance.add(property: "os", value: "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
         let bundleName = (Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String))
-        instance.add(property: "browser", value: "com.presco")
+        instance.add(property: "browser", value: bundleName as! String)
         
         instance.gPinger = WPinger(tracker: instance)
         // create dummy visitor object to track 'anonymous' events
@@ -105,7 +105,7 @@ public class WTracker: WPropertiesContainer {
             if key.hasPrefix("~") {
                 // Parsing of required system event properties. For example ~event – custom event type. e.g. event=purchase, event=signup etc…
                 let index = key.index(key.startIndex, offsetBy: 1)
-                queryItems.append(NSURLQueryItem(name: String(key[..<index]), value: value))
+                queryItems.append(NSURLQueryItem(name: String(key[index...), value: value))
             } else {
                 // Parsing of optional event properties
                 queryItems.append(NSURLQueryItem(name: "ce_\(key)", value: value))
