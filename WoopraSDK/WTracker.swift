@@ -12,12 +12,12 @@ public class WTracker: WPropertiesContainer {
     
     // MARK: - Public properties
     // Identifies which project environment your sending this tracking request to. E.g. http://yourproject.com
-    dynamic public var domain: String?
-    dynamic public var visitor: WVisitor!
+    @objc dynamic public var domain: String?
+    @objc dynamic public var visitor: WVisitor!
     
     // In seconds, defaults to 60, after which the event will expire and the visitor will considered offline.
     // when idleTimeout changes – pingInterval = idleTimeout - 10.0 (but minimum is 30.0 for both)
-    dynamic public var idleTimeout: TimeInterval {
+    @objc dynamic public var idleTimeout: TimeInterval {
         get { return _idleTimeout }
         set(aNewValue) {
             if aNewValue < 30.0 {
@@ -31,7 +31,7 @@ public class WTracker: WPropertiesContainer {
     private var _idleTimeout: TimeInterval = 60.0
    
     // ping requests can be periodically sent to Woopra servers to refresh the visitor timeout counter. This is used if it’s important to keep a visitor status ‘online’ when he’s inactive for a long time (for cases such as watching a long video).
-    dynamic public var pingEnabled = false
+    @objc dynamic public var pingEnabled = false
     
     // visit’s referring URL, Woopra servers will match the URL against a database of referrers and will generate a referrer type and search terms when applicable. The referrers data will be automatically accessible from the Woopra clients.
     public var referer: String?
@@ -105,7 +105,7 @@ public class WTracker: WPropertiesContainer {
             if key.hasPrefix("~") {
                 // Parsing of required system event properties. For example ~event – custom event type. e.g. event=purchase, event=signup etc…
                 let index = key.index(key.startIndex, offsetBy: 1)
-                queryItems.append(NSURLQueryItem(name: key.substring(from: index), value: value))
+                queryItems.append(NSURLQueryItem(name: String(key[..<index]), value: value))
             } else {
                 // Parsing of optional event properties
                 queryItems.append(NSURLQueryItem(name: "ce_\(key)", value: value))
