@@ -48,7 +48,7 @@ public class WTracker: WPropertiesContainer {
         instance.add(property: "device", value: UIDevice.current.model)
         instance.add(property: "os", value: "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
         let bundleName = (Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String))
-        instance.add(property: "browser", value: bundleName as! String)
+        instance.add(property: "browser", value: "com.presco")
         
         instance.gPinger = WPinger(tracker: instance)
         // create dummy visitor object to track 'anonymous' events
