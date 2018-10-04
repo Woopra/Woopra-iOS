@@ -48,7 +48,7 @@ class WPinger: NSObject {
         pingTimer = nil
         
         if let tracker = self.tracker, let domain = tracker.domain {
-            if (domain.characters.count > 0 &&
+            if (!domain.isEmpty &&
                 tracker.visitor != nil &&
                 tracker.pingEnabled) {
                 pingInterval = tracker.idleTimeout - 10.0
@@ -58,7 +58,7 @@ class WPinger: NSObject {
         }
     }
     
-    func pingTimerDidFire(timer: Timer) {
+    @objc func pingTimerDidFire(timer: Timer) {
         
         if let tracker = self.tracker, let domain = tracker.domain, let visitor = tracker.visitor {
             let parameters = "?host=" + domain + "&response=xml&cookie=\(visitor.cookie)&meta=VGhpcyBpcyBhIHRlc3Q&timeout=\(Int(tracker.idleTimeout * 1000))"
