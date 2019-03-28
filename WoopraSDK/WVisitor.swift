@@ -6,11 +6,9 @@
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 
-import UIKit
-
 public class WVisitor: WPropertiesContainer {
     
-    public var cookie: String = ""
+    public var cookie = ""
     private static let WoopraCookieKey = "woopra_cookie"
     
     public static func visitor(withCookie cookie: String) -> WVisitor {

@@ -9,17 +9,13 @@
 import Foundation
 
 public class WPropertiesContainer: NSObject {
-    var properties = Dictionary<String, String>()
+    var properties: [String: String] = [:]
     
     public func add(property key: String, value: String) {
-            properties[key] = value
-        }
+        properties[key] = value
+    }
     
-    public func add(properties newDictionary: Dictionary<String, String>) {
-        properties.update(other: newDictionary)
+    public func add(properties newDictionary: [String: String]) {
+        properties.update(with: newDictionary)
     }
 }
-
-
-
-
