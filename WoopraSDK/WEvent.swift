@@ -12,7 +12,7 @@ public class WEvent: WPropertiesContainer {
     
     public init(name: String) {
         super.init()
-        self.add(property: "~event", value: name)
+        add(property: "~event", value: name)
     }
     
     public static func event(name: String) -> WEvent {

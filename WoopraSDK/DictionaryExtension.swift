@@ -6,12 +6,11 @@
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 
-import UIKit
-
 extension Dictionary {
-    mutating func update(other:Dictionary) {
-        for (key,value) in other {
-            self.updateValue(value, forKey:key)
+
+    mutating func update(with dictionary: Dictionary) {
+        for (key, value) in dictionary {
+            updateValue(value, forKey: key)
         }
     }
 }
