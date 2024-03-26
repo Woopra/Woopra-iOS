@@ -13,7 +13,8 @@ public class WTracker: WPropertiesContainer {
     @objc dynamic public var domain: String?
     @objc dynamic public var visitor: WVisitor!
     
-    // In seconds, defaults to 30, after which the event will expire and the visitor will considered offline.
+    // In seconds, defaults to 60, after which the event will expire and the visitor will considered offline.
+    // when idleTimeout changes – pingInterval = idleTimeout - 10.0 (but minimum is 30.0 for both)
     @objc dynamic public var idleTimeout: TimeInterval {
         get { return _idleTimeout }
         set(aNewValue) {
