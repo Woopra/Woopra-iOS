@@ -16,6 +16,7 @@
 		6E8C76381F7535F900929E02 /* WTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76331F7535F900929E02 /* WTracker.swift */; };
 		6E8C76391F7535F900929E02 /* WEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76341F7535F900929E02 /* WEvent.swift */; };
 		6ECDA1EF1F7701F20053F3D6 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */; };
+		8A7768CA2BB2BEFB005164D2 /* WIdentify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7768C92BB2BEFB005164D2 /* WIdentify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		6E8C76331F7535F900929E02 /* WTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTracker.swift; sourceTree = "<group>"; };
 		6E8C76341F7535F900929E02 /* WEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEvent.swift; sourceTree = "<group>"; };
 		6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		8A7768C92BB2BEFB005164D2 /* WIdentify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIdentify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		6E8C76181F7535E000929E02 /* WoopraSDK */ = {
 			isa = PBXGroup;
 			children = (
+				8A7768C92BB2BEFB005164D2 /* WIdentify.swift */,
 				6E8C76191F7535E000929E02 /* WoopraSDK.h */,
 				6E8C76331F7535F900929E02 /* WTracker.swift */,
 				6E8C76301F7535F900929E02 /* WVisitor.swift */,
@@ -181,6 +184,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 6E8C760C1F7535E000929E02;
@@ -220,6 +224,7 @@
 				6E8C76381F7535F900929E02 /* WTracker.swift in Sources */,
 				6E8C76361F7535F900929E02 /* WPinger.swift in Sources */,
 				6ECDA1EF1F7701F20053F3D6 /* DictionaryExtension.swift in Sources */,
+				8A7768CA2BB2BEFB005164D2 /* WIdentify.swift in Sources */,
 				6E8C76351F7535F900929E02 /* WVisitor.swift in Sources */,
 				6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */,
 			);
