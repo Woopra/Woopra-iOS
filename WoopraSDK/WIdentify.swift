@@ -12,7 +12,10 @@ public class WIdentify {
     }
     
     func run() {
-        let url = URL(string: wIdnetifyEndPoint)!
+        guard let url = URL(string: wIdnetifyEndPoint) else {
+            print("Invalid URL")
+            return
+        }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         
@@ -21,7 +24,7 @@ public class WIdentify {
             "cookie": tracker.visitor.cookie,
             "app": "ios",
             "response": "xml",
-            "os": "ios",
+            "os": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)",
             "timeout": Int(
                 tracker.idleTimeout * 1000
             ),
