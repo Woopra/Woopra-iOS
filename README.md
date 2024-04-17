@@ -14,13 +14,6 @@ You can update your idle timeout (default: 60 seconds) by updating the timeout p
 WTracker.shared.idleTimeout = 30
 ```
 
-If you want to keep the user online on Woopra even if they don't commit any event between the last event and the idleTimeout, you can enable auto pings.
-
-``` swift
-// Ping is disabled by default
-WTracker.shared.pingEnabled = true
-```
-
 To add custom visitor properties, you should edit the visitor object.
 
 ``` swift

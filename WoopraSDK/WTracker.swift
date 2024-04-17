@@ -28,16 +28,12 @@ public class WTracker: WPropertiesContainer {
 
     private static let defaultIdleTimeout: TimeInterval = 60.0
     private var _idleTimeout: TimeInterval = defaultIdleTimeout
-   
-    // ping requests can be periodically sent to Woopra servers to refresh the visitor timeout counter. This is used if it’s important to keep a visitor status ‘online’ when he’s inactive for a long time (for cases such as watching a long video).
-    @objc dynamic public var pingEnabled = false
     
     // visit’s referring URL, Woopra servers will match the URL against a database of referrers and will generate a referrer type and search terms when applicable. The referrers data will be automatically accessible from the Woopra clients.
     public var referer: String?
     
     // MARK: - Private properties
     private let wEventEndpoint = "https://www.woopra.com/track/ce/"
-    private var wPinger: WPinger?
     
     // MARK: - Shared instance
     public static let shared: WTracker = {
@@ -49,7 +45,6 @@ public class WTracker: WPropertiesContainer {
         let bundleName = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String)
         instance.add(property: "browser", value: bundleName as! String)
         
-        instance.wPinger = WPinger(tracker: instance)
         // create dummy visitor object to track 'anonymous' events
         instance.visitor = WVisitor.anonymousVisitor()
         

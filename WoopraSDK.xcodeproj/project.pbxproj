@@ -11,7 +11,6 @@
 		6E8C76251F7535E000929E02 /* WoopraSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76241F7535E000929E02 /* WoopraSDKTests.swift */; };
 		6E8C76271F7535E000929E02 /* WoopraSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8C76191F7535E000929E02 /* WoopraSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E8C76351F7535F900929E02 /* WVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76301F7535F900929E02 /* WVisitor.swift */; };
-		6E8C76361F7535F900929E02 /* WPinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76311F7535F900929E02 /* WPinger.swift */; };
 		6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */; };
 		6E8C76381F7535F900929E02 /* WTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76331F7535F900929E02 /* WTracker.swift */; };
 		6E8C76391F7535F900929E02 /* WEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76341F7535F900929E02 /* WEvent.swift */; };
@@ -36,7 +35,6 @@
 		6E8C76241F7535E000929E02 /* WoopraSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopraSDKTests.swift; sourceTree = "<group>"; };
 		6E8C76261F7535E000929E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E8C76301F7535F900929E02 /* WVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WVisitor.swift; sourceTree = "<group>"; };
-		6E8C76311F7535F900929E02 /* WPinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPinger.swift; sourceTree = "<group>"; };
 		6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WPropertiesContainer.swift; sourceTree = "<group>"; };
 		6E8C76331F7535F900929E02 /* WTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTracker.swift; sourceTree = "<group>"; };
 		6E8C76341F7535F900929E02 /* WEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEvent.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				6E8C76191F7535E000929E02 /* WoopraSDK.h */,
 				6E8C76331F7535F900929E02 /* WTracker.swift */,
 				6E8C76301F7535F900929E02 /* WVisitor.swift */,
-				6E8C76311F7535F900929E02 /* WPinger.swift */,
 				6E8C76341F7535F900929E02 /* WEvent.swift */,
 				6E8C76321F7535F900929E02 /* WPropertiesContainer.swift */,
 				6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */,
@@ -218,7 +215,6 @@
 			files = (
 				6E8C76391F7535F900929E02 /* WEvent.swift in Sources */,
 				6E8C76381F7535F900929E02 /* WTracker.swift in Sources */,
-				6E8C76361F7535F900929E02 /* WPinger.swift in Sources */,
 				6ECDA1EF1F7701F20053F3D6 /* DictionaryExtension.swift in Sources */,
 				6E8C76351F7535F900929E02 /* WVisitor.swift in Sources */,
 				6E8C76371F7535F900929E02 /* WPropertiesContainer.swift in Sources */,
