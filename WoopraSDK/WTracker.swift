@@ -134,4 +134,12 @@ public class WTracker: WPropertiesContainer {
     public func trackEvent(named: String) {
         self.trackEvent(WEvent(name: named))
     }
+    
+    // MARK: - Methods
+    public func push() {
+        let identify = WIdentify(tracker: self)
+        DispatchQueue.global(qos: .utility).async {
+            identify.run()
+        }
+    }
 }
