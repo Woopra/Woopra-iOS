@@ -126,8 +126,7 @@ public class WTracker: WPropertiesContainer {
             #if DEBUG
             // Print the request body
             if let requestBody = String(data: jsonString, encoding: .utf8) {
-                print("Request Body:")
-                print(requestBody)
+                print("Request Body: \(requestBody)")
             } else {
                 print("Failed to convert request body to string")
             }
