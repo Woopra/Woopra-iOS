@@ -6,8 +6,9 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://woopra.com/"
   s.license      = "MIT"
-  s.author             = "Woopra"
+  s.author       = "Woopra"
   s.platform     = :ios, "10.0"
+  s.swift_versions = ['4.0']
 
   s.source       = { :git => "https://github.com/Woopra/Woopra-iOS.git", :tag => "#{s.version}" }
   s.source_files = "WoopraSDK", "WoopraSDK/**/*.{h,m,swift}"
