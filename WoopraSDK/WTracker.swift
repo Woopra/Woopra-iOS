@@ -43,9 +43,11 @@ public class WTracker: WPropertiesContainer {
         // initialize system needed properties
         instance.add(property: "device", value: UIDevice.current.model)
         instance.add(property: "os", value: "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
-        let bundleName = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String)
-        instance.add(property: "browser", value: bundleName as! String)
-        
+        if case let key = kCFBundleNameKey as String,
+           let bundleName = Bundle.main.object(forInfoDictionaryKey: key) as? String {
+            instance.add(property: "browser", value: bundleName)
+        }
+
         // create dummy visitor object to track 'anonymous' events
         instance.visitor = WVisitor.anonymousVisitor()
         
