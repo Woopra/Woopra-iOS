@@ -6,6 +6,7 @@
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 
+@objcMembers
 public class WVisitor: WPropertiesContainer {
     
     public var cookie = ""
