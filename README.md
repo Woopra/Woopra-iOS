@@ -1,7 +1,6 @@
-<h2>Woopra iOS SDK Documentation</h2>
+## Woopra iOS SDK Documentation
 
-![](https://www.woopra.com/wp-content/uploads/2015/03/woopra-logo.png)
-
+### Instantiate Tracker
 When the app loads, you should load the Woopra Tracker and configure it.
 
 ``` swift
@@ -14,15 +13,8 @@ You can update your idle timeout (default: 60 seconds) by updating the timeout p
 WTracker.shared.idleTimeout = 30
 ```
 
-To add custom visitor properties, you should edit the visitor object.
-
-``` swift
-WTracker.shared.visitor.add(property: "name", value: "John Smith")
-WTracker.shared.visitor.add(property: "email", value: "john@smith.com")
-```
-Your custom visitor data will not be pushed until you send your first custom event. On website, the default event is a `pageview`. In mobile apps, we recommend that developers use the event `appview` when switching between Windows and Views.
-
-To add send an `appview` event:
+### Event Tracking
+To track an `appview` event:
 
 ``` swift
 // create event "appview"
@@ -31,6 +23,20 @@ let event = WEvent.event(name: "appview")
 event.add(property: "view", value: "login-view")
 // track event
 WTracker.shared.trackEvent(event)
+```
+
+### Identifying
+To add custom visitor properties, you should edit the visitor object.
+
+``` swift
+WTracker.shared.visitor.add(property: "name", value: "John Smith")
+WTracker.shared.visitor.add(property: "email", value: "john@smith.com")
+```
+
+You can then send an identify call without tracking an event by using the push method:
+
+``` swift
+WTracker.shared.push()
 ```
 
 ## Installation
