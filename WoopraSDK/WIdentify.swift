@@ -1,6 +1,6 @@
 import Foundation
 
-public class WIdentify {
+internal class WIdentify {
     
     private let wIdnetifyEndPoint = "https://www.woopra.com/track/identify"
     private let tracker: WTracker
