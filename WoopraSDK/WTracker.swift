@@ -68,8 +68,11 @@ public class WTracker: WPropertiesContainer {
             return
         }
         
-        let url = URL(string: wEventEndpoint)!
-        let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true)
+        guard let url = URL(string: wEventEndpoint) else {
+             print("Invalid URL")
+             return
+         }
+        
         var queryItems: [NSURLQueryItem] = [
             NSURLQueryItem(name: "app", value: "ios"),
             NSURLQueryItem(name: "host", value: domain),
@@ -105,30 +108,47 @@ public class WTracker: WPropertiesContainer {
             }
         }
         
-        components?.queryItems = queryItems as [URLQueryItem]
-        let requestUrl = components?.url
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        if let url = requestUrl {
-            let request = URLRequest(url: url)
-            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                #if DEBUG
-                // check for errors
-                guard error == nil else {
-                    print("error")
-                    print(error!)
-                    return
-                }
-                
-                guard let responseData = data else {
-                    print("Error: did not receive data")
-                    return
-                }
-
-                print(responseData.debugDescription)
-                #endif
-            })
-            task.resume()
+        // Convert queryItems to a dictionary
+        let parameters = queryItems.reduce(into: [String: String]()) { result, item in
+            result[item.name] = item.value
         }
+        if let jsonString = try? JSONSerialization.data(withJSONObject: parameters, options: []) {
+            request.httpBody = jsonString
+            #if DEBUG
+            // Print the request body
+            if let requestBody = String(data: jsonString, encoding: .utf8) {
+                print("Request Body: \(requestBody)")
+            } else {
+                print("Failed to convert request body to string")
+            }
+            #endif
+        } else {
+            print("Failed to serialize parameters to JSON")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard data != nil else {
+                print("Error: No response data")
+                return
+            }
+            
+            #if DEBUG
+            if let httpResponse = response as? HTTPURLResponse {
+                print("Response: \(httpResponse.statusCode)")
+            }
+            #endif
+        })
+        task.resume()
     }
     
     public func trackEvent(named: String) {
