@@ -8,6 +8,7 @@
 
 import Foundation
 
+@objcMembers
 public class WEvent: WPropertiesContainer {
     
     public init(name: String) {

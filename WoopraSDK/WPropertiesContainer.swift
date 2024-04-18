@@ -8,6 +8,7 @@
 
 import Foundation
 
+@objcMembers
 public class WPropertiesContainer: NSObject {
     var properties: [String: String] = [:]
     
