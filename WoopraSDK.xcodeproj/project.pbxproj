@@ -23,6 +23,7 @@
 		B181BCFE2BD100E400B1C721 /* WTrackerObjcPublicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B181BCFD2BD100E400B1C721 /* WTrackerObjcPublicTests.m */; };
 		B181BD002BD102EB00B1C721 /* WEventObjcPublicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B181BCFF2BD102EB00B1C721 /* WEventObjcPublicTests.m */; };
 		B181BD022BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B181BD012BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m */; };
+		B181BD102BD232B800B1C721 /* WTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181BD0F2BD232B800B1C721 /* WTrackerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		B181BCFD2BD100E400B1C721 /* WTrackerObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTrackerObjcPublicTests.m; sourceTree = "<group>"; };
 		B181BCFF2BD102EB00B1C721 /* WEventObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WEventObjcPublicTests.m; sourceTree = "<group>"; };
 		B181BD012BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPropertiesContainerObjcPublicTests.m; sourceTree = "<group>"; };
+		B181BD0F2BD232B800B1C721 /* WTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTrackerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		B181BD0E2BD231C500B1C721 /* InternalTests */ = {
 			isa = PBXGroup;
 			children = (
+				B181BD0F2BD232B800B1C721 /* WTrackerTests.swift */,
 			);
 			name = InternalTests;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				B181BD002BD102EB00B1C721 /* WEventObjcPublicTests.m in Sources */,
 				B181BD022BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m in Sources */,
 				B181BCEA2BD0EC2400B1C721 /* WEventPublicTests.swift in Sources */,
+				B181BD102BD232B800B1C721 /* WTrackerTests.swift in Sources */,
 				B181BCFE2BD100E400B1C721 /* WTrackerObjcPublicTests.m in Sources */,
 				B181BCFC2BD0FF5800B1C721 /* WVisitorObjcPublicTests.m in Sources */,
 				B181BCF62BD0F69A00B1C721 /* WTrackerPublicTests.swift in Sources */,
