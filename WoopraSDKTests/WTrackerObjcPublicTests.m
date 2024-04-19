@@ -15,7 +15,12 @@
 
 @implementation WTrackerObjcPublicTests
 
-- (void)testShared {
+- (void)tearDownWithCompletionHandler:(void (^)(NSError * _Nullable))completion {
+    [super tearDownWithCompletionHandler:completion];
+    // do necessary reset for WTracker.shared here
+}
+
+- (void)testSharedBasicProperties {
     // arrange & act
     WTracker *sharedTracker = [WTracker shared];
 
@@ -25,20 +30,9 @@
     XCTAssertNotNil(sharedTracker.properties[@"browser"]);
 }
 
-- (void)testInit {
-    // arrange & act
-    WTracker *tracker = [[WTracker alloc] init];
-
-    // assert
-    XCTAssertNil(tracker.domain);
-    XCTAssertNotNil(tracker.visitor);
-    XCTAssertEqual(tracker.idleTimeout, 60);
-    XCTAssertNil(tracker.referer);
-}
-
 - (void)testCanTrackEvent {
     // arrange
-    WTracker *tracker = [[WTracker alloc] init];
+    WTracker *tracker = [WTracker shared];
     WEvent *event = [WEvent eventWithName:@""];
 
     // act & assert
@@ -47,7 +41,7 @@
 
 - (void)testCanTrackEventWithName {
     // arrange
-    WTracker *tracker = [[WTracker alloc] init];
+    WTracker *tracker = [WTracker shared];
 
     // act & assert
     [tracker trackEventWithNamed:@""];
@@ -55,7 +49,7 @@
 
 - (void)testCanPush {
     // arrange
-    WTracker *tracker = [[WTracker alloc] init];
+    WTracker *tracker = [WTracker shared];
 
     // act & assert
     [tracker push];

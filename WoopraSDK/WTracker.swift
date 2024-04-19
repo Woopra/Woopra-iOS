@@ -54,6 +54,10 @@ public class WTracker: WPropertiesContainer {
         return instance
     }()
 
+    internal override init() {
+        super.init()
+    }
+
     // MARK: - Methods
     public func trackEvent(_ event: WEvent) {
         // check parameters

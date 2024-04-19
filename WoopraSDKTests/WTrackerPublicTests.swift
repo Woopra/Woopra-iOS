@@ -11,7 +11,12 @@ import XCTest
 
 final class WTrackerPublicTests: XCTestCase {
 
-    func testShared() throws {
+    override func tearDown() async throws {
+        try await super.tearDown()
+        // do necessary reset for WTracker.shared here
+    }
+
+    func testSharedBasicProperties() throws {
         // arrange & act
         let sharedTracker = WTracker.shared
 
@@ -21,20 +26,9 @@ final class WTrackerPublicTests: XCTestCase {
         XCTAssertNotNil(sharedTracker.properties["browser"])
     }
 
-    func testInit() throws {
-        // arrange & act
-        let tracker = WTracker()
-
-        // assert
-        XCTAssertNil(tracker.domain)
-        XCTAssertNotNil(tracker.visitor)
-        XCTAssertEqual(tracker.idleTimeout, 60)
-        XCTAssertNil(tracker.referer)
-    }
-
     func testCanTrackEvent() throws {
         // arrange
-        let tracker = WTracker()
+        let tracker = WTracker.shared
         let event = WEvent(name: "")
 
         // act & assert
@@ -43,7 +37,7 @@ final class WTrackerPublicTests: XCTestCase {
 
     func testCanTrackEventWithName() throws {
         // arrange
-        let tracker = WTracker()
+        let tracker = WTracker.shared
 
         // act & assert
         tracker.trackEvent(named: "")
@@ -51,7 +45,7 @@ final class WTrackerPublicTests: XCTestCase {
 
     func testCanPush() throws {
         // arrange
-        let tracker = WTracker()
+        let tracker = WTracker.shared
 
         // act & assert
         tracker.push()
