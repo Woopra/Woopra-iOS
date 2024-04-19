@@ -1,43 +1,4 @@
-## Woopra iOS SDK Documentation
-
-### Instantiate Tracker
-When the app loads, you should load the Woopra Tracker and configure it.
-
-``` swift
-WTracker.shared.domain = "mybusiness.com"
-```
-
-You can update your idle timeout (default: 60 seconds) by updating the timeout property in your WTracker instance:
-
-``` swift
-WTracker.shared.idleTimeout = 30
-```
-
-### Event Tracking
-To track an `appview` event:
-
-``` swift
-// create event "appview"
-let event = WEvent.event(name: "appview")
-// add property "view" with value "login-view"
-event.add(property: "view", value: "login-view")
-// track event
-WTracker.shared.trackEvent(event)
-```
-
-### Identifying
-To add custom visitor properties, you should edit the visitor object.
-
-``` swift
-WTracker.shared.visitor.add(property: "name", value: "John Smith")
-WTracker.shared.visitor.add(property: "email", value: "john@smith.com")
-```
-
-You can then send an identify call without tracking an event by using the push method:
-
-``` swift
-WTracker.shared.push()
-```
+# Woopra iOS SDK Documentation
 
 ## Installation
 
@@ -85,3 +46,47 @@ github "Woopra/Woopra-iOS"
 ```
 
 Run `carthage update` to build the framework and drag the built `WoopraSDK.framework` into your Xcode project.
+
+## Usage
+
+### Instantiate Tracker
+
+When the app loads, you should load the Woopra Tracker and configure it.
+
+``` swift
+WTracker.shared.domain = "mybusiness.com"
+```
+
+You can update your idle timeout (default: 60 seconds) by updating the timeout property in your WTracker instance:
+
+``` swift
+WTracker.shared.idleTimeout = 30
+```
+
+### Event Tracking
+
+To track an `appview` event:
+
+``` swift
+// create event "appview"
+let event = WEvent.event(name: "appview")
+// add property "view" with value "login-view"
+event.add(property: "view", value: "login-view")
+// track event
+WTracker.shared.trackEvent(event)
+```
+
+### Identifying
+
+To add custom visitor properties, you should edit the visitor object.
+
+``` swift
+WTracker.shared.visitor.add(property: "name", value: "John Smith")
+WTracker.shared.visitor.add(property: "email", value: "john@smith.com")
+```
+
+You can then send an identify call without tracking an event by using the push method:
+
+``` swift
+WTracker.shared.push()
+```
