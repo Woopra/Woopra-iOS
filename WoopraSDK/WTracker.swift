@@ -74,27 +74,31 @@ public class WTracker: WPropertiesContainer {
              return
          }
         
-        var queryItems: [NSURLQueryItem] = [
-            NSURLQueryItem(name: "app", value: "ios"),
-            NSURLQueryItem(name: "host", value: domain),
-            NSURLQueryItem(name: "cookie", value: visitor.cookie),
-            NSURLQueryItem(name: "response", value: "xml"),
-            NSURLQueryItem(name: "timeout", value: Int(idleTimeout * 1000).description)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        var requestBody: [String: Any] = [
+            "app": "ios",
+            "host": domain,
+            "cookie": visitor.cookie,
+            "response": "xml",
+            "timeout": Int(idleTimeout * 1000)
         ]
         
         if let referer = referer {
-            queryItems.append(NSURLQueryItem(name: "referer", value: referer))
+            requestBody["referer"] = referer
         }
         
         // Add system properties e.g. device, os, browser
         for (key, value) in properties {
-            queryItems.append(NSURLQueryItem(name: "\(key)", value: value))
+            requestBody[key] = value
         }
         
         // Add visitors properties
         let visitorProperties = visitor.properties
         for (key, value) in visitorProperties {
-            queryItems.append(NSURLQueryItem(name: "cv_\(key)", value: value));
+            requestBody["cv_\(key)"] = value
         }
         
         // Add Event Properties
@@ -102,37 +106,30 @@ public class WTracker: WPropertiesContainer {
             if key.hasPrefix("~") {
                 // Parsing of required system event properties. For example ~event – custom event type. e.g. event=purchase, event=signup etc…
                 let index = key.index(key.startIndex, offsetBy: 1)
-                queryItems.append(NSURLQueryItem(name: String(key[index...]), value: value))
+                requestBody[String(key[index...])] = value
             } else {
                 // Parsing of optional event properties
-                queryItems.append(NSURLQueryItem(name: "ce_\(key)", value: value))
+                requestBody["ce_\(key)"] = value
             }
         }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Convert queryItems to a dictionary
-        let parameters = queryItems.reduce(into: [String: String]()) { result, item in
-            result[item.name] = item.value
-        }
-        if let jsonString = try? JSONSerialization.data(withJSONObject: parameters, options: []) {
-            request.httpBody = jsonString
+        // Convert requestBody to JSON data
+        do{
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options:[])
+            request.httpBody = jsonData
+            
             #if DEBUG
-            // Print the request body
-            if let requestBody = String(data: jsonString, encoding: .utf8) {
-                print("Request Body: \(requestBody)")
-            } else {
-                print("Failed to convert request body to string")
+            if let requestBodyString = String(data: jsonData, encoding: .utf8) {
+                print("Request Body: \(requestBodyString)")
             }
             #endif
-        } else {
-            print("Failed to serialize parameters to JSON")
+        } catch{
+            print("Error converting request body to JSON:\(error.localizedDescription)")
             return
         }
         
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { 
+            (data, response, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -148,7 +145,7 @@ public class WTracker: WPropertiesContainer {
                 print("Response: \(httpResponse.statusCode)")
             }
             #endif
-        })
+        }
         task.resume()
     }
     

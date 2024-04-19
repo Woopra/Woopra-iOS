@@ -16,8 +16,9 @@ internal class WIdentify {
             print("Invalid URL")
             return
         }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         var requestBody: [String: Any] = [
             "host": tracker.domain ?? "",
@@ -35,37 +36,39 @@ internal class WIdentify {
             requestBody["cv_\(key)"] = value
         }
         
-        urlRequest.httpBody = try? JSONSerialization.data(
-            withJSONObject: requestBody,
-            options: []
-        )
-        urlRequest.setValue(
-            "application/json",
-            forHTTPHeaderField: "Content-Type"
-        )
+        // Convert requestBody to JSON data
+        do{
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options:[])
+            request.httpBody = jsonData
+            
+            #if DEBUG
+            if let requestBodyString = String(data: jsonData, encoding: .utf8) {
+                print("Request Body: \(requestBodyString)")
+            }
+            #endif
+        } catch{
+            print("Error converting request body to JSON:\(error.localizedDescription)")
+            return
+        }
         
-        print("Request Body: \(requestBody)")
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) {
-            (
-                data,
-                response,
-                error
-            ) in
+        let task = URLSession.shared.dataTask(with: request) {
+            ( data, response, error) in
             if let error = error {
-                print(
-                    "Got error: \(error)"
-                )
+                print("Error: \(error.localizedDescription)")
                 return
             }
             
-            if let httpResponse = response as? HTTPURLResponse {
-                print(
-                    "Response: \(httpResponse.statusCode)"
-                )
+            guard data != nil else {
+                print("Error: No response data")
+                return
             }
+            
+            #if DEBUG
+            if let httpResponse = response as? HTTPURLResponse {
+                print("Response: \(httpResponse.statusCode)")
+            }
+            #endif
         }
-        
         task.resume()
     }
 }
