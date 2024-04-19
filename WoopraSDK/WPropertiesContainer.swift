@@ -10,13 +10,13 @@ import Foundation
 
 @objcMembers
 public class WPropertiesContainer: NSObject {
-    public private(set) var properties: [String: String] = [:]
+    public private(set) var properties: [String: Any] = [:]
 
-    public func add(property key: String, value: String) {
+    public func add(property key: String, value: Any) {
         properties[key] = value
     }
     
-    public func add(properties newDictionary: [String: String]) {
+    public func add(properties newDictionary: [String: Any]) {
         properties.update(with: newDictionary)
     }
 }
