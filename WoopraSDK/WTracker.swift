@@ -114,7 +114,7 @@ public class WTracker: WPropertiesContainer {
         }
         
         // Convert requestBody to JSON data
-        do{
+        do {
             let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options:[])
             request.httpBody = jsonData
             
@@ -123,7 +123,7 @@ public class WTracker: WPropertiesContainer {
                 print("Request Body: \(requestBodyString)")
             }
             #endif
-        } catch{
+        } catch {
             print("Error converting request body to JSON:\(error.localizedDescription)")
             return
         }

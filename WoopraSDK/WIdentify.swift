@@ -37,7 +37,7 @@ internal class WIdentify {
         }
         
         // Convert requestBody to JSON data
-        do{
+        do {
             let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options:[])
             request.httpBody = jsonData
             
@@ -46,13 +46,13 @@ internal class WIdentify {
                 print("Request Body: \(requestBodyString)")
             }
             #endif
-        } catch{
+        } catch {
             print("Error converting request body to JSON:\(error.localizedDescription)")
             return
         }
         
         let task = URLSession.shared.dataTask(with: request) {
-            ( data, response, error) in
+            (data, response, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
