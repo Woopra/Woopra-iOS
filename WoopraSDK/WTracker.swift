@@ -26,7 +26,7 @@ public class WTracker: WPropertiesContainer {
             }
         }
     }
-
+    
     private static let defaultIdleTimeout: TimeInterval = 60.0
     private var _idleTimeout: TimeInterval = defaultIdleTimeout
     
@@ -47,17 +47,17 @@ public class WTracker: WPropertiesContainer {
            let bundleName = Bundle.main.object(forInfoDictionaryKey: key) as? String {
             instance.add(property: "browser", value: bundleName)
         }
-
+        
         // create dummy visitor object to track 'anonymous' events
         instance.visitor = WVisitor.anonymousVisitor()
         
         return instance
     }()
-
+    
     internal override init() {
         super.init()
     }
-
+    
     // MARK: - Methods
     public func trackEvent(_ event: WEvent) {
         // check parameters
@@ -67,11 +67,11 @@ public class WTracker: WPropertiesContainer {
             #endif
             return
         }
-
+        
         guard let url = URL(string: wEventEndpoint) else {
-             print("Invalid URL")
-             return
-         }
+            print("Invalid URL")
+            return
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -112,6 +112,11 @@ public class WTracker: WPropertiesContainer {
             }
         }
         
+        if !JSONSerialization.isValidJSONObject(requestBody) {
+            print("Request body contains invalid values for JSON serialization.")
+            return
+        }
+        
         // Convert requestBody to JSON data
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options:[])
@@ -127,7 +132,7 @@ public class WTracker: WPropertiesContainer {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: request) { 
+        let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
