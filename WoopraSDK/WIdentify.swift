@@ -36,8 +36,8 @@ internal class WIdentify {
             requestBody["cv_\(key)"] = value
         }
         
-        if !JSONSerialization.isValidJSONObject(requestBody) {
-            print("Request body contains invalid values for JSON serialization.")
+        if  JSONSerialization.isValidJSONObject(requestBody) == false {
+            print("Error: Request body contains invalid values for JSON serialization.")
             return
         }
         
