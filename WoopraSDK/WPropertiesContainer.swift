@@ -10,7 +10,7 @@ import Foundation
 
 @objcMembers
 public class WPropertiesContainer: NSObject {
-    var properties: [String: Any] = [:]
+    public private(set) var properties: [String: Any] = [:]
     
     public func add(property key: String, value: Any) {
         properties[key] = value
