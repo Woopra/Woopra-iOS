@@ -12,7 +12,7 @@ public class WTracker: WPropertiesContainer {
     // MARK: - Public properties
     // Identifies which project environment your sending this tracking request to. E.g. http://yourproject.com
     @objc dynamic public var domain: String?
-    @objc dynamic public var visitor: WVisitor!
+    @objc dynamic public var visitor: WVisitor = WVisitor.anonymousVisitor()
     
     // In seconds, defaults to 60, after which the event will expire and the visitor will considered offline.
     // when idleTimeout changes – pingInterval = idleTimeout - 10.0 (but minimum is 30.0 for both)
@@ -43,14 +43,20 @@ public class WTracker: WPropertiesContainer {
         // initialize system needed properties
         instance.add(property: "device", value: UIDevice.current.model)
         instance.add(property: "os", value: "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
-        let bundleName = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String)
-        instance.add(property: "browser", value: bundleName as! String)
-        
+        if case let key = kCFBundleNameKey as String,
+           let bundleName = Bundle.main.object(forInfoDictionaryKey: key) as? String {
+            instance.add(property: "browser", value: bundleName)
+        }
+
         // create dummy visitor object to track 'anonymous' events
         instance.visitor = WVisitor.anonymousVisitor()
         
         return instance
     }()
+
+    internal override init() {
+        super.init()
+    }
 
     // MARK: - Methods
     public func trackEvent(_ event: WEvent) {
@@ -62,13 +68,6 @@ public class WTracker: WPropertiesContainer {
             return
         }
 
-        guard let visitor = visitor else {
-            #if DEBUG
-            print("WTracker.visitor property must be set before WTracker.trackEvent: invocation")
-            #endif
-            return
-        }
-        
         guard let url = URL(string: wEventEndpoint) else {
              print("Invalid URL")
              return

@@ -34,7 +34,6 @@ public class WVisitor: WPropertiesContainer {
         guard let anonymousCookie = UserDefaults.standard.string(forKey: WoopraCookieKey) else {
             let anonymousCookie = NSUUID().uuidString.replacingOccurrences(of: "-", with: "").lowercased()
             UserDefaults.standard.setValue(anonymousCookie, forKey: WoopraCookieKey)
-            UserDefaults.standard.synchronize()
             return anonymousCookie
         }
         
