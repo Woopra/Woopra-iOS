@@ -51,6 +51,10 @@ Run `carthage update` to build the framework and drag the built `WoopraSDK.frame
 
 ### Instantiate Tracker
 
+```swift
+import Woopra_iOS
+```
+
 When the app loads, you should load the Woopra Tracker and configure it.
 
 ``` swift
