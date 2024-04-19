@@ -9,11 +9,11 @@
 #import <WoopraSDK/WoopraSDK-Swift.h>
 #import <XCTest/XCTest.h>
 
-@interface WTrackerObjcTests : XCTestCase
+@interface WTrackerObjcPublicTests : XCTestCase
 
 @end
 
-@implementation WTrackerObjcTests
+@implementation WTrackerObjcPublicTests
 
 - (void)testShared {
     // arrange & act

@@ -9,11 +9,11 @@
 #import <WoopraSDK/WoopraSDK-Swift.h>
 #import <XCTest/XCTest.h>
 
-@interface WEventObjcTests : XCTestCase
+@interface WEventObjcPublicTests : XCTestCase
 
 @end
 
-@implementation WEventObjcTests
+@implementation WEventObjcPublicTests
 
 - (void)testInit {
     // arrange & act

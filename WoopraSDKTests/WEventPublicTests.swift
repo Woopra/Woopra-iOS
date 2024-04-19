@@ -9,7 +9,7 @@
 import WoopraSDK
 import XCTest
 
-final class WEventTests: XCTestCase {
+final class WEventPublicTests: XCTestCase {
 
     func testInit() throws {
         // arrange & act

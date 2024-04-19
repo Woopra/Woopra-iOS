@@ -9,7 +9,7 @@
 import WoopraSDK
 import XCTest
 
-final class WPropertiesContainerTests: XCTestCase {
+final class WPropertiesContainerPublicTests: XCTestCase {
 
     func testAddProperty() throws {
         // arrange

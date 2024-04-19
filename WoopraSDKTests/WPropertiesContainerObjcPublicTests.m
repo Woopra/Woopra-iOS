@@ -9,11 +9,11 @@
 #import <WoopraSDK/WoopraSDK-Swift.h>
 #import <XCTest/XCTest.h>
 
-@interface WPropertiesContainerObjcTests : XCTestCase
+@interface WPropertiesContainerObjcPublicTests : XCTestCase
 
 @end
 
-@implementation WPropertiesContainerObjcTests
+@implementation WPropertiesContainerObjcPublicTests
 
 - (void)testAddProperty {
     // arrange

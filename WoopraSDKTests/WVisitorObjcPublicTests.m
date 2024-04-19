@@ -9,11 +9,11 @@
 #import <WoopraSDK/WoopraSDK-Swift.h>
 #import <XCTest/XCTest.h>
 
-@interface WVisitorObjcTests : XCTestCase
+@interface WVisitorObjcPublicTests : XCTestCase
 
 @end
 
-@implementation WVisitorObjcTests
+@implementation WVisitorObjcPublicTests
 
 - (void)testInitWithCookie {
     // arrange & act

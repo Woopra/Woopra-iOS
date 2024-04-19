@@ -9,7 +9,7 @@
 import WoopraSDK
 import XCTest
 
-final class WVisitorTests: XCTestCase {
+final class WVisitorPublicTests: XCTestCase {
 
     func testInitWithCookie() throws {
         // arrange & act

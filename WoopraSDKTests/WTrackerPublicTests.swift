@@ -9,7 +9,7 @@
 import WoopraSDK
 import XCTest
 
-final class WTrackerTests: XCTestCase {
+final class WTrackerPublicTests: XCTestCase {
 
     func testShared() throws {
         // arrange & act
