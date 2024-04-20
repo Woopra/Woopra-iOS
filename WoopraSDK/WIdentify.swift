@@ -1,5 +1,7 @@
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
 internal class WIdentify {
     
@@ -26,11 +28,16 @@ internal class WIdentify {
             "cookie": tracker.visitor.cookie,
             "app": "ios",
             "response": "xml",
-            "os": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)",
             "timeout": Int(
                 tracker.idleTimeout * 1000
             ),
         ]
+
+#if canImport(UIKit)
+        requestBody["os"] = "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+#else
+        requestBody["os"] = "Unknown"
+#endif
         
         let visitorProperties = tracker.visitor.properties
         for ( key, value ) in visitorProperties {
