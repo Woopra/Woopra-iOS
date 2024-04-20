@@ -6,6 +6,11 @@
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 
+import Foundation
+#if canImport(UIKit)
+import UIKit
+#endif
+
 @objcMembers
 public class WTracker: WPropertiesContainer {
     
@@ -41,8 +46,13 @@ public class WTracker: WPropertiesContainer {
         let instance = WTracker()
         
         // initialize system needed properties
+#if canImport(UIKit)
         instance.add(property: "device", value: UIDevice.current.model)
         instance.add(property: "os", value: "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
+#else
+        instance.add(property: "device", value: "Unknown")
+        instance.add(property: "os", value: "Unknown")
+#endif
         if case let key = kCFBundleNameKey as String,
            let bundleName = Bundle.main.object(forInfoDictionaryKey: key) as? String {
             instance.add(property: "browser", value: bundleName)
