@@ -47,12 +47,32 @@ github "Woopra/Woopra-iOS"
 
 Run `carthage update` to build the framework and drag the built `WoopraSDK.framework` into your Xcode project.
 
+### Swift Package Manager
+
+To integrate WoopraSDK into your project using the Swift Package Manager, add the following as a dependency in your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Woopra/Woopra-iOS.git", from: "1.1.0")
+]
+```
+
+Then, add `WoopraSDK` as a dependency for your target:
+
+```swift
+targets: [
+    .target(
+        name: "YourAppName",
+        dependencies: ["WoopraSDK"]),
+]
+```
+
 ## Usage
 
 ### Instantiate Tracker
 
 ```swift
-import Woopra_iOS
+import WoopraSDK
 ```
 
 When the app loads, you should load the Woopra Tracker and configure it.
