@@ -16,7 +16,7 @@ final class WEventPublicTests: XCTestCase {
         let event = WEvent(name: "test")
 
         // assert
-        XCTAssertEqual(event.properties, ["~event": "test"])
+        XCTAssertEqual(event.properties as NSDictionary, ["~event": "test"] as NSDictionary)
     }
 
     func testStaticInit() throws {
@@ -24,6 +24,6 @@ final class WEventPublicTests: XCTestCase {
         let event = WEvent.event(name: "test")
 
         // assert
-        XCTAssertEqual(event.properties, ["~event": "test"])
+        XCTAssertEqual(event.properties as NSDictionary, ["~event": "test"] as NSDictionary)
     }
 }
