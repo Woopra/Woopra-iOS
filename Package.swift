@@ -2,10 +2,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "Woopra_iOS",
+    name: "Woopra",
     products: [
         .library(
-            name: "Woopra_iOS",
+            name: "Woopra",
             targets: ["WoopraSDK"]),
     ],
     dependencies: [],
