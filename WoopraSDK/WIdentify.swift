@@ -1,7 +1,5 @@
 import Foundation
-#if canImport(UIKit)
 import UIKit
-#endif
 
 internal class WIdentify {
     
@@ -33,11 +31,7 @@ internal class WIdentify {
             ),
         ]
 
-#if canImport(UIKit)
         requestBody["os"] = "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
-#else
-        requestBody["os"] = "Unknown"
-#endif
         
         let visitorProperties = tracker.visitor.properties
         for ( key, value ) in visitorProperties {

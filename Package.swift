@@ -14,10 +14,6 @@ let package = Package(
             name: "WoopraSDK",
             dependencies: [],
             path: "WoopraSDK"),
-        .testTarget(
-            name: "WoopraSDKTests",
-            dependencies: ["WoopraSDK"],
-            path: "WoopraSDKTests"),
     ],
     swiftLanguageVersions: [.v5]    
 )
