@@ -26,12 +26,11 @@ internal class WIdentify {
             "cookie": tracker.visitor.cookie,
             "app": "ios",
             "response": "xml",
+            "os": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)",
             "timeout": Int(
                 tracker.idleTimeout * 1000
             ),
         ]
-
-        requestBody["os"] = "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
         
         let visitorProperties = tracker.visitor.properties
         for ( key, value ) in visitorProperties {
