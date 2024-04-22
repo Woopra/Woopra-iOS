@@ -14,7 +14,7 @@ To integrate WoopraSDK into your Xcode project using CocoaPods, please, specify 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
@@ -49,7 +49,14 @@ Run `carthage update` to build the framework and drag the built `Woopra.framewor
 
 ### Swift Package Manager
 
-To integrate Woopra into your project using the Swift Package Manager, add the following as a dependency in your `Package.swift` file:
+#### Installing from Xcode(using Xcode15.3 for example)
+
+1. Add a package by selecting `File` → `Add Package Dependencies...` in Xcode’s menu bar.
+2. Search for the Woopra SDK using the repo's URL: `https://github.com/Woopra/Woopra-iOS.git`
+3. Set the `Dependency Rule` to be `Exact Version` with version `1.2.0`
+4. Select `Add Package`.
+
+#### Alternatively, integrate Woopra SDK in your `Package.swift` file(swift-tools-version:5.0)
 
 ```swift
 dependencies: [
@@ -63,7 +70,8 @@ Then, add `Woopra` as a dependency for your target:
 targets: [
     .target(
         name: "YourAppName",
-        dependencies: ["Woopra"]),
+        dependencies: [
+                .product(name: "Woopra", package: "Woopra-iOS")]
 ]
 ```
 
