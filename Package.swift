@@ -6,7 +6,7 @@ let package = Package(
     products: [
         .library(
             name: "Woopra",
-            targets: ["WoopraSDK"]),
+            targets: ["Woopra"]),
     ],
     dependencies: [],
     targets: [
