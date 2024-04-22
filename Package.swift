@@ -2,16 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "WoopraSDK",
+    name: "Woopra",
     products: [
         .library(
             name: "Woopra",
-            targets: ["WoopraSDK"]),
+            targets: ["Woopra"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "WoopraSDK",
+            name: "Woopra",
             dependencies: [],
             path: "WoopraSDK"),
     ],
