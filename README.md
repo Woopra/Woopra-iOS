@@ -72,7 +72,7 @@ targets: [
 ### Instantiate Tracker
 
 ```swift
-import WoopraSDK
+import Woopra_iOS
 ```
 
 When the app loads, you should load the Woopra Tracker and configure it.
