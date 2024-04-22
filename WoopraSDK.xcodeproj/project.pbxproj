@@ -15,6 +15,7 @@
 		6E8C76391F7535F900929E02 /* WEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C76341F7535F900929E02 /* WEvent.swift */; };
 		6ECDA1EF1F7701F20053F3D6 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */; };
 		8A7768CA2BB2BEFB005164D2 /* WIdentify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7768C92BB2BEFB005164D2 /* WIdentify.swift */; };
+		B181BCEA2BD0EC2400B1C721 /* WEventPublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181BCE92BD0EC2400B1C721 /* WEventPublicTests.swift */; };
 		B181BCEE2BD0F1E400B1C721 /* WPropertiesContainerPublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181BCED2BD0F1E400B1C721 /* WPropertiesContainerPublicTests.swift */; };
 		B181BCF62BD0F69A00B1C721 /* WTrackerPublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181BCF52BD0F69A00B1C721 /* WTrackerPublicTests.swift */; };
 		B181BCF82BD0FD5D00B1C721 /* WVisitorPublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181BCF72BD0FD5D00B1C721 /* WVisitorPublicTests.swift */; };
@@ -47,16 +48,16 @@
 		6E8C76341F7535F900929E02 /* WEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEvent.swift; sourceTree = "<group>"; };
 		6ECDA1EE1F7701F20053F3D6 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		8A7768C92BB2BEFB005164D2 /* WIdentify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIdentify.swift; sourceTree = "<group>"; };
-		B181BCE92BD0EC2400B1C721 /* WVisitorPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WVisitorPublicTests.swift; path = Swift/WVisitorPublicTests.swift; sourceTree = "<group>"; };
-		B181BCED2BD0F1E400B1C721 /* WPropertiesContainerPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WPropertiesContainerPublicTests.swift; path = Swift/WPropertiesContainerPublicTests.swift; sourceTree = "<group>"; };
+		B181BCE92BD0EC2400B1C721 /* WEventPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEventPublicTests.swift; sourceTree = "<group>"; };
+		B181BCED2BD0F1E400B1C721 /* WPropertiesContainerPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WPropertiesContainerPublicTests.swift; sourceTree = "<group>"; };
 		B181BCF12BD0F21700B1C721 /* WoopraSDKTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WoopraSDKTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		B181BCF52BD0F69A00B1C721 /* WTrackerPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WTrackerPublicTests.swift; path = Swift/WTrackerPublicTests.swift; sourceTree = "<group>"; };
-		B181BCF72BD0FD5D00B1C721 /* WVisitorPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WVisitorPublicTests.swift; path = Swift/WVisitorPublicTests.swift; sourceTree = "<group>"; };
+		B181BCF52BD0F69A00B1C721 /* WTrackerPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTrackerPublicTests.swift; sourceTree = "<group>"; };
+		B181BCF72BD0FD5D00B1C721 /* WVisitorPublicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WVisitorPublicTests.swift; sourceTree = "<group>"; };
 		B181BCFB2BD0FF5800B1C721 /* WVisitorObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WVisitorObjcPublicTests.m; sourceTree = "<group>"; };
 		B181BCFD2BD100E400B1C721 /* WTrackerObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTrackerObjcPublicTests.m; sourceTree = "<group>"; };
 		B181BCFF2BD102EB00B1C721 /* WEventObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WEventObjcPublicTests.m; sourceTree = "<group>"; };
 		B181BD012BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPropertiesContainerObjcPublicTests.m; sourceTree = "<group>"; };
-		B181BD0F2BD232B800B1C721 /* WTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WTrackerTests.swift; path = Swift/WTrackerTests.swift; sourceTree = "<group>"; };
+		B181BD0F2BD232B800B1C721 /* WTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTrackerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,44 +115,27 @@
 		6E8C76231F7535E000929E02 /* WoopraSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				8ACE1E072BD3821000F2ACEF /* ObjC */,
-				8ACE1E062BD381BF00F2ACEF /* Swift */,
+				B181BD0E2BD231C500B1C721 /* InternalTests */,
+				B181BCF42BD0F4E700B1C721 /* PublicAPIs */,
 				6E8C76261F7535E000929E02 /* Info.plist */,
 				B181BCF12BD0F21700B1C721 /* WoopraSDKTests-Bridging-Header.h */,
 			);
 			path = WoopraSDKTests;
 			sourceTree = "<group>";
 		};
-		8ACE1E062BD381BF00F2ACEF /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				B181BD0E2BD231C500B1C721 /* InternalTests */,
-				B181BCF42BD0F4E700B1C721 /* PublicAPIs */,
-			);
-			path = Swift;
-			sourceTree = "<group>";
-		};
-		8ACE1E072BD3821000F2ACEF /* ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				B181BCFF2BD102EB00B1C721 /* WEventObjcPublicTests.m */,
-				B181BD012BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m */,
-				B181BCFD2BD100E400B1C721 /* WTrackerObjcPublicTests.m */,
-				B181BCFB2BD0FF5800B1C721 /* WVisitorObjcPublicTests.m */,
-			);
-			path = ObjC;
-			sourceTree = "<group>";
-		};
 		B181BCF42BD0F4E700B1C721 /* PublicAPIs */ = {
 			isa = PBXGroup;
 			children = (
-				B181BCE92BD0EC2400B1C721 /* WVisitorPublicTests.swift */,
+				B181BCFF2BD102EB00B1C721 /* WEventObjcPublicTests.m */,
+				B181BCE92BD0EC2400B1C721 /* WEventPublicTests.swift */,
+				B181BD012BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m */,
 				B181BCED2BD0F1E400B1C721 /* WPropertiesContainerPublicTests.swift */,
+				B181BCFD2BD100E400B1C721 /* WTrackerObjcPublicTests.m */,
 				B181BCF52BD0F69A00B1C721 /* WTrackerPublicTests.swift */,
+				B181BCFB2BD0FF5800B1C721 /* WVisitorObjcPublicTests.m */,
 				B181BCF72BD0FD5D00B1C721 /* WVisitorPublicTests.swift */,
 			);
 			name = PublicAPIs;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		B181BD0E2BD231C500B1C721 /* InternalTests */ = {
@@ -160,7 +144,6 @@
 				B181BD0F2BD232B800B1C721 /* WTrackerTests.swift */,
 			);
 			name = InternalTests;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +277,7 @@
 				B181BCF82BD0FD5D00B1C721 /* WVisitorPublicTests.swift in Sources */,
 				B181BD002BD102EB00B1C721 /* WEventObjcPublicTests.m in Sources */,
 				B181BD022BD1039A00B1C721 /* WPropertiesContainerObjcPublicTests.m in Sources */,
+				B181BCEA2BD0EC2400B1C721 /* WEventPublicTests.swift in Sources */,
 				B181BD102BD232B800B1C721 /* WTrackerTests.swift in Sources */,
 				B181BCFE2BD100E400B1C721 /* WTrackerObjcPublicTests.m in Sources */,
 				B181BCFC2BD0FF5800B1C721 /* WVisitorObjcPublicTests.m in Sources */,
