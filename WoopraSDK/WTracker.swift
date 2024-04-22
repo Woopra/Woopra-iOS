@@ -6,6 +6,9 @@
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 @objcMembers
 public class WTracker: WPropertiesContainer {
     

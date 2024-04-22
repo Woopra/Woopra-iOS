@@ -19,7 +19,7 @@ final class WPropertiesContainerPublicTests: XCTestCase {
         container.add(property: "key", value: "value")
 
         // assert
-        XCTAssertEqual(container.properties, ["key": "value"])
+        XCTAssertEqual(container.properties as NSDictionary, ["key": "value"] as NSDictionary)
     }
 
     func testAddProperties() throws {
@@ -30,6 +30,6 @@ final class WPropertiesContainerPublicTests: XCTestCase {
         container.add(properties: ["key": "value"])
 
         // assert
-        XCTAssertEqual(container.properties, ["key": "value"])
+        XCTAssertEqual(container.properties as NSDictionary, ["key": "value"] as NSDictionary)
     }
 }

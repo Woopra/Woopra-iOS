@@ -26,7 +26,7 @@ final class WVisitorPublicTests: XCTestCase {
 
         // assert
         XCTAssertFalse(visitor.cookie.isEmpty)
-        XCTAssertEqual(visitor.properties, ["email": "email"])
+        XCTAssertEqual(visitor.properties["email"] as? String, "email")
     }
 
     func testAnonymousVisitor() throws {

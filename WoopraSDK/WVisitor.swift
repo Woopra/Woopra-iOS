@@ -6,6 +6,8 @@
 //  Copyright © 2017 Woopra. All rights reserved.
 //
 
+import Foundation
+
 @objcMembers
 public class WVisitor: WPropertiesContainer {
     
