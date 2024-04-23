@@ -52,11 +52,11 @@ Run `carthage update` to build the framework and drag the built `Woopra.framewor
 #### Installing from Xcode(using Xcode15.3 for example)
 
 1. Add a package by selecting `File` → `Add Package Dependencies...` in Xcode’s menu bar.
-2. Search for the Woopra SDK using the repo's URL: `https://github.com/Woopra/Woopra-iOS.git`
+2. Search for the AppierWoopra SDK using the repo's URL: `https://github.com/Woopra/Woopra-iOS.git`
 3. Set the `Dependency Rule` to be `Exact Version` with version `1.2.0`
 4. Select `Add Package`.
 
-#### Alternatively, integrate Woopra SDK in your `Package.swift` file(swift-tools-version:5.0)
+#### Alternatively, integrate AppierWoopra SDK in your `Package.swift` file(swift-tools-version:5.0)
 
 ```swift
 dependencies: [
