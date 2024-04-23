@@ -18,7 +18,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'Woopra', '1.2.0'
+    pod 'AppierWoopra', '1.2.0'
 end
 ```
 
