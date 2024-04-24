@@ -64,14 +64,14 @@ dependencies: [
 ]
 ```
 
-Then, add `WoopraSDK` as a dependency for your target:
+Then, add the dependency to your target:
 
 ```swift
 targets: [
     .target(
         name: "YourAppName",
         dependencies: [
-                .product(name: "WoopraSDK", package: "Woopra-iOS")]
+            .product(name: "Woopra", package: "Woopra-iOS")]
     )
 ]
 ```
