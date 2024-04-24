@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "AppierWoopra",
+    name: "WoopraSDK",
     products: [
         .library(
             name: "Woopra",
