@@ -28,25 +28,6 @@ Then, run the following command:
 $ pod install
 ```
 
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate the SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "Woopra/Woopra-iOS"
-```
-
-Run `carthage update` to build the framework and drag the built `Woopra.framework` into your Xcode project.
-
 ### Swift Package Manager
 
 #### Installing from Xcode(using Xcode15.3 for example)
