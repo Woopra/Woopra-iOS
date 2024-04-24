@@ -10,15 +10,15 @@
 $ gem install cocoapods
 ```
 
-To integrate WoopraSDK into your Xcode project using CocoaPods, please, specify it in your `Podfile`:
+To integrate the SDK into your Xcode project using CocoaPods, please, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'Woopra-iOS'
+    pod 'WoopraSDK', '1.2.0'
 end
 ```
 
@@ -28,42 +28,32 @@ Then, run the following command:
 $ pod install
 ```
 
-### Carthage
-
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate Woopra iOS SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "Woopra/Woopra-iOS"
-```
-
-Run `carthage update` to build the framework and drag the built `WoopraSDK.framework` into your Xcode project.
-
 ### Swift Package Manager
 
-To integrate WoopraSDK into your project using the Swift Package Manager, add the following as a dependency in your `Package.swift` file:
+#### Installing from Xcode(using Xcode15.3 for example)
+
+1. Add a package by selecting `File` → `Add Package Dependencies...` in Xcode’s menu bar.
+2. Search for the `WoopraSDK` using the repo's URL: `https://github.com/Woopra/Woopra-iOS.git`
+3. Set the `Dependency Rule` to be `Exact Version` with version `1.2.0`
+4. Select `Add Package`.
+
+#### Alternatively, integrate WoopraSDK in your `Package.swift` file(swift-tools-version:5.0)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Woopra/Woopra-iOS.git", from: "1.1.0")
+    .package(url: "https://github.com/Woopra/Woopra-iOS.git", from: "1.2.0")
 ]
 ```
 
-Then, add `WoopraSDK` as a dependency for your target:
+Then, add the dependency to your target:
 
 ```swift
 targets: [
     .target(
         name: "YourAppName",
-        dependencies: ["WoopraSDK"]),
+        dependencies: [
+            .product(name: "Woopra", package: "Woopra-iOS")]
+    )
 ]
 ```
 
@@ -72,7 +62,7 @@ targets: [
 ### Instantiate Tracker
 
 ```swift
-import WoopraSDK
+import Woopra
 ```
 
 When the app loads, you should load the Woopra Tracker and configure it.

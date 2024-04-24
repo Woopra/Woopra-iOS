@@ -5,13 +5,13 @@ let package = Package(
     name: "WoopraSDK",
     products: [
         .library(
-            name: "Woopra_iOS",
-            targets: ["WoopraSDK"]),
+            name: "Woopra",
+            targets: ["Woopra"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "WoopraSDK",
+            name: "Woopra",
             dependencies: [],
             path: "WoopraSDK"),
     ],
