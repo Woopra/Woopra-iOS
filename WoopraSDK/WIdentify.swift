@@ -35,8 +35,6 @@ internal class WIdentify {
 
 #if canImport(UIKit)
         requestBody["os"] = "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
-#else
-        requestBody["os"] = "Unknown"
 #endif
         
         let visitorProperties = tracker.visitor.properties
