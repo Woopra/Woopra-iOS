@@ -31,13 +31,13 @@ public class WTracker: WPropertiesContainer {
             }
         }
     }
-    
-    private static let defaultIdleTimeout: TimeInterval = 60.0
-    private var _idleTimeout: TimeInterval = defaultIdleTimeout
-    
+
     // visit’s referring URL, Woopra servers will match the URL against a database of referrers and will generate a referrer type and search terms when applicable. The referrers data will be automatically accessible from the Woopra clients.
-    public var referer: String?
+    @objc dynamic public var referer: String?
     
+    private static let defaultIdleTimeout: TimeInterval = 30.0
+    private var _idleTimeout: TimeInterval = defaultIdleTimeout
+
     // MARK: - Private properties
     private let wEventEndpoint = "https://www.woopra.com/track/ce/"
     
