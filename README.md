@@ -118,7 +118,7 @@ WTracker.shared.referer = <REFERRER_STRING>
 You can update your idle timeout (default: 5 minutes) by updating the timeout property in your WTracker instance:
 
 ``` swift
-WTracker.shared.idleTimeout = 360
+WTracker.shared.idleTimeout = 300
 ```
 
 > [!NOTE]
