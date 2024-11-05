@@ -71,12 +71,6 @@ When the app loads, you should load the Woopra Tracker and configure it.
 WTracker.shared.domain = "mybusiness.com"
 ```
 
-You can update your idle timeout (default: 60 seconds) by updating the timeout property in your WTracker instance:
-
-``` swift
-WTracker.shared.idleTimeout = 30
-```
-
 ### Event Tracking
 
 To track an `appview` event:
@@ -104,3 +98,28 @@ You can then send an identify call without tracking an event by using the push m
 ``` swift
 WTracker.shared.push()
 ```
+
+## Advanced Settings
+
+To add referrer information, timestamp, and other track request properties, look at the `WoopraTracker` and `WoopraEvent` class public methods for an exhaustive list of setter methods.  Here are some common examples:
+
+### Tracker Settings
+
+#### Track Referrer
+
+To add referrer information, set the referer property in your WTracker instance:
+
+``` swift
+WTracker.shared.referer = <REFERRER_STRING>
+```
+
+#### Idle Timeout
+
+You can update your idle timeout (default: 5 minutes) by updating the timeout property in your WTracker instance:
+
+``` swift
+WTracker.shared.idleTimeout = 360
+```
+
+> [!NOTE]
+> The idle timeout is in seconds.

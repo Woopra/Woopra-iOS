@@ -18,7 +18,7 @@ final class WTrackerTests: XCTestCase {
         // assert
         XCTAssertNil(tracker.domain)
         XCTAssertNotNil(tracker.visitor)
-        XCTAssertEqual(tracker.idleTimeout, 60)
+        XCTAssertEqual(tracker.idleTimeout, 300)
         XCTAssertNil(tracker.referer)
     }
 }
