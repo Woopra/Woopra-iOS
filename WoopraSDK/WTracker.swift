@@ -65,25 +65,7 @@ public class WTracker: WPropertiesContainer {
         super.init()
     }
     
-    // MARK: - Methods
-    public func trackEvent(_ event: WEvent) {
-        // check parameters
-        guard let domain = domain else {
-            #if DEBUG
-            print("WTracker.domain property must be set before WTracker.trackEvent: invocation. Ex.: tracker.domain = mywebsite.com")
-            #endif
-            return
-        }
-        
-        guard let url = URL(string: wEventEndpoint) else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+    private func constructRequestBody(domain: String, event: WEvent) -> [String: Any] {
         var requestBody: [String: Any] = [
             "app": "ios",
             "host": domain,
@@ -118,7 +100,31 @@ public class WTracker: WPropertiesContainer {
                 requestBody["ce_\(key)"] = value
             }
         }
+
+        return requestBody
+    }
+
+    // MARK: - Methods
+    public func trackEvent(_ event: WEvent) {
+        // check parameters
+        guard let domain = domain else {
+            #if DEBUG
+            print("WTracker.domain property must be set before WTracker.trackEvent: invocation. Ex.: tracker.domain = mywebsite.com")
+            #endif
+            return
+        }
         
+        guard let url = URL(string: wEventEndpoint) else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestBody: [String: Any] = constructRequestBody(domain: domain, event: event)
+
         if JSONSerialization.isValidJSONObject(requestBody) == false {
             print("Error: Request body contains invalid values for JSON serialization.")
             return
