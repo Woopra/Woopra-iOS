@@ -35,7 +35,7 @@ public class WTracker: WPropertiesContainer {
     // visit’s referring URL, Woopra servers will match the URL against a database of referrers and will generate a referrer type and search terms when applicable. The referrers data will be automatically accessible from the Woopra clients.
     @objc dynamic public var referer: String?
     
-    private static let defaultIdleTimeout: TimeInterval = 300.0
+    private static let defaultIdleTimeout: TimeInterval = 300
     private var _idleTimeout: TimeInterval = defaultIdleTimeout
 
     // MARK: - Private properties
