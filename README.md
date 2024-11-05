@@ -18,7 +18,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'WoopraSDK', '1.2.0'
+    pod 'WoopraSDK', '1.2.1'
 end
 ```
 
@@ -34,14 +34,14 @@ $ pod install
 
 1. Add a package by selecting `File` → `Add Package Dependencies...` in Xcode’s menu bar.
 2. Search for the `WoopraSDK` using the repo's URL: `https://github.com/Woopra/Woopra-iOS.git`
-3. Set the `Dependency Rule` to be `Exact Version` with version `1.2.0`
+3. Set the `Dependency Rule` to be `Exact Version` with version `1.2.1`
 4. Select `Add Package`.
 
 #### Alternatively, integrate WoopraSDK in your `Package.swift` file(swift-tools-version:5.0)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Woopra/Woopra-iOS.git", from: "1.2.0")
+    .package(url: "https://github.com/Woopra/Woopra-iOS.git", from: "1.2.1")
 ]
 ```
 
